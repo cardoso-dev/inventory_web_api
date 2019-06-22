@@ -7,6 +7,9 @@ class Category(models.Model):
         max_length=95,
         verbose_name="Categoria")
 
+    def __str__(self):
+        return self.name
+
 
 class Product(models.Model):
 
@@ -23,3 +26,6 @@ class Product(models.Model):
     image = models.CharField(
         max_length=500,
         verbose_name="Imagen de producto")
+
+    def __str__(self):
+        return '{} ({})'.format(self.name, self.category.name)
