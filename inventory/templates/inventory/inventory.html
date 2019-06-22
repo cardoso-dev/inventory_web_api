@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Inventario</title>
+        <style type="text/css">
+            h2 {
+                text-align: center;
+                border-bottom: double 3px silver;
+                padding: 1em, auto;
+            }
+            div.product {
+                margin:5px 3px;
+                border:ridge 2px silver;
+                float:left;
+            }
+            div.product img {
+                width: 11em;
+                height: 11em;
+            }
+            .p_title {
+                display: block;
+                text-align: center;
+            }
+            .p_footer {
+                display: block;
+                font-size: 0.8em;
+                text-align: right;
+            }
+            img {
+                display: block;
+                margin: 0.75em auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2>Inventario</h2>
+
+        {% for product in products %}
+            <div class="product">
+                <span class="p_title">{{ product.name }}</span>
+                <img src="{{ product.image }}" alt="{{ product.name }}"/>
+                <span class="p_footer">Categoria: {{ product.category.name }}</span>
+            </div>
+        {% endfor %}
+
+    </body>
+</html>
