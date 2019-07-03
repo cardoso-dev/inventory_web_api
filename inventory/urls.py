@@ -5,9 +5,9 @@ from .views import InventoryView, CategoryViewSet, ProductViewSet
 
 router = routers.DefaultRouter()
 router.register(
-    r'categories', CategoryViewSet, base_name ='api')
+    r'api/categories', CategoryViewSet)
 router.register(
-    r'products', ProductViewSet, base_name ='api')
+    r'api/products', ProductViewSet)
 
 urlpatterns = [
     url('^$', InventoryView.as_view(), name='inventory_index'),
