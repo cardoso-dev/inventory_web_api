@@ -1,8 +1,14 @@
-from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 
-from .views import InventoryView
+from .views import InventoryView, CategoryViewSet, ProductViewSet
 
-urlpatterns = [
-    path('', InventoryView.as_view(), name='inventory_index'),
-]
+router = routers.DefaultRouter()
+router.register(r'categories', CategoryViewSet)
+router.register(r'products', ProductViewSet)
+
+urlpatterns = router.urls
+
+urlpatterns.append(
+    path('web', InventoryView.as_view(), name='inventory_index'),
+)
