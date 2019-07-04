@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'inventory_web_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': 'bd_inventory',
         'USER': 'pedro',
         'PASSWORD': 'Mysql.123',
