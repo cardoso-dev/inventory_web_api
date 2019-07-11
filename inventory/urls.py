@@ -1,7 +1,8 @@
 from django.conf.urls import url, include
 from rest_framework import routers
 
-from .views import InventoryView, CategoryViewSet, ProductViewSet, ProductsAjax
+from .views import InventoryView, CategoryViewSet, \
+    ProductViewSet, ProductsRandomList
 
 router = routers.DefaultRouter()
 router.register(
@@ -14,6 +15,6 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(
         '^api/products/random$',
-        ProductsAjax.as_view(),
+        ProductsRandomList.as_view(),
         name='products_random'),
 ]

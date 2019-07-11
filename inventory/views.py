@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 
+from rest_framework import generics
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
 from django.views.generic import TemplateView, View
@@ -30,13 +31,9 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
 
 
-class ProductsAjax(View):
+class ProductsRandomList(generics.ListAPIView):
+    serializer_class = ProductSerializer
 
-    def get(self, *args, **kwargs):
-        random_data = Product.objects.order_by('?')[:3]
-        list_data = []
-
-        for model in random_data:
-            list_data.append(model_to_dict(model))
-
-        return JsonResponse(list_data, safe=False)
+    def get_queryset(self):
+        queryset = Product.objects.order_by('?')[:3]
+        return queryset
