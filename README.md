@@ -1,4 +1,5 @@
 # inventory_web_api
+
 Django practice for have a web page with api functions as sample
 
 ## Installation
@@ -18,3 +19,4 @@ The Database engine is set to Mysql in the settings to an initial data populatio
 And then in settings configure your credentials
 
 Your are done!
+
